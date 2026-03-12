@@ -9,6 +9,11 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   (for example: "the secret number kept changing" or "the hints were backwards").
 
 ---
+  When I started the program there were a few issues that the user would run into immediately
+  1. The hints are reversed. When you're lower than the number, it is going to tell you to go lower and vice versa
+  2. New game doesn't work. It wont refresh anything, and you have to actually restart your page in order for it to refresh.
+  3. The difficulty doesn't work. When you pick a difficulty, only the attempts change, not the range of the number
+  4. The score is offset by 1, so itll only increment after the 1st round.
 
 ## 2. How did you use AI as a teammate?
 

@@ -1,13 +1,13 @@
 import random
 import streamlit as st
-
+#FIXME --> This issue was pointed out by Claude, but I went in and fixed it manually
 def get_range_for_difficulty(difficulty: str):
     if difficulty == "Easy":
         return 1, 20
     if difficulty == "Normal":
-        return 1, 100
-    if difficulty == "Hard":
         return 1, 50
+    if difficulty == "Hard":
+        return 1, 100
     return 1, 100
 
 
@@ -87,7 +87,7 @@ low, high = get_range_for_difficulty(difficulty)
 
 st.sidebar.caption(f"Range: {low} to {high}")
 st.sidebar.caption(f"Attempts allowed: {attempt_limit}")
-
+#FIXME fix the issue of constantly changing
 if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
 
@@ -134,6 +134,7 @@ with col3:
 if new_game:
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(low, high)
+    #FIXME Had claude review the issue and make a new instance where the games status resets
     st.session_state.status = "playing"
     st.session_state.history = []
     st.success("New game started.")

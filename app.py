@@ -28,7 +28,7 @@ def parse_guess(raw: str):
 
     return True, value, None
 
-#FIXME: Logic breaks here
+#FIXME: Logic breaks here --> Reversed hints
 def check_guess(guess, secret):
     if guess == secret:
         return "Win", "🎉 Correct!"
@@ -130,10 +130,12 @@ with col2:
 with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
-#FIXME: Logic breaks here
+#FIXME: Logic breaks here --> New Game ignoring difficulty+ not working
 if new_game:
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(low, high)
+    st.session_state.status = "playing"
+    st.session_state.history = []
     st.success("New game started.")
     st.rerun()
 

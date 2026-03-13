@@ -21,7 +21,9 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 
+
 ---
+I used Claude code for this project. Initially, when starting this project, I asked Claude to give me a brief breakdown of some of the bugs that exist in this project. A few examples of bugs it gave was the fact that the hints were backwards and the range didnt change no matter what difficulty you chose. I verfied these by not only checking the code to see clear indicators, but also going into the streamlit app and testing it manually. Claude was right in these bugs. However, there were some bugs that were not correct. It said that on even numbered attempts there was an issue with the reliability of hints. However, after fixing the hint direction and checking the game, there seemed to be no issue with the hints, so that was something that was slightly false that I verified.
 
 ## 3. Debugging and testing your fixes
 
@@ -32,6 +34,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 ---
 
+
 ## 4. What did you learn about Streamlit and state?
 
 - In your own words, explain why the secret number kept changing in the original app.
@@ -39,6 +42,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - What change did you make that finally gave the game a stable secret number?
 
 ---
+The secret number kept changing because we kept overriding the number everytime the program did a rerun. Essentially, whenever a Submit Guess was clicked, the random generator reran. Streamlit reruns the entire script whenever something happens on the page, in this case submitting the guess. We use a session state to store specific variables that dont change each rerun. Finally, to fix the problem, instead of refrshing the random number everytime, we put the secret number into the session state so that once the secret is there, it stays there util New game is run and a new session state is generated.
 
 ## 5. Looking ahead: your developer habits
 
